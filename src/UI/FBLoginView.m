@@ -460,14 +460,7 @@ static CGSize g_buttonSize;
 
 - (UIViewController *)viewController
 {
-    UIResponder* responder = self.nextResponder;
-    while (responder) {
-        if ([responder isKindOfClass:[UIViewController class]]) {
-            return (UIViewController *)responder;
-        }
-        responder = responder.nextResponder;
-    }
-    return nil;
+    return [FBUtility topMostViewController];
 }
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
