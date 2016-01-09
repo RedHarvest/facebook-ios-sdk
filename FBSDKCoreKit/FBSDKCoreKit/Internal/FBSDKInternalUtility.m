@@ -470,14 +470,7 @@ static NSMapTable *_transientObjects;
 
 + (UIViewController *)viewControllerforView:(UIView*)view
 {
-  UIResponder *responder = view.nextResponder;
-  while (responder) {
-    if ([responder isKindOfClass:[UIViewController class]]) {
-      return (UIViewController *)responder;
-    }
-    responder = responder.nextResponder;
-  }
-  return nil;
+	return [FBSDKInternalUtility topMostViewController];
 }
 
 #pragma mark - FB Apps Installed
